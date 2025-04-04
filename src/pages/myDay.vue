@@ -112,7 +112,7 @@ import { useQuasar,date } from 'quasar'
         setup(){
             const newTask = ref('')
             const tasks = ref({})
-            const model=ref('')
+            const model=ref('') 
            
             const $q = useQuasar()
             const addTask=()=>{
