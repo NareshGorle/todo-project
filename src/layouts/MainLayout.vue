@@ -38,18 +38,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
-            to="/Important"
-             clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="star" />
-              </q-item-section>
-
-              <q-item-section>
-                Important
-              </q-item-section>
-            </q-item>
-
+        
             <q-item
             to="/help"
              clickable v-ripple>

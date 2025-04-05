@@ -2,7 +2,7 @@
     <q-page class="bg-grey-3 column">
         <div class="row q-pa-sm bg-primary">
             <q-input
-             v-model="newTask"
+              v-model="newTask"
               class="col"
               square
               filled
@@ -10,7 +10,7 @@
               bottom-slot
               placeholder="Add task"
               @keyup.enter="addTask"
-                dense>
+              dense>
         <template v-slot:append>
           <q-btn 
            @click="addTask"
@@ -29,7 +29,6 @@
        <q-item 
        v-for="(task,index) in tasks"
          :key="task.title"
-         
          @click="task.done=!task.done"
         :class="{'done':task.done}"
         v-ripple>
@@ -38,7 +37,6 @@
           <q-checkbox
            clickable
            v-model="task.done"
-          
            color="primary" 
            /> 
         </q-item-section> 
@@ -57,22 +55,17 @@
             @blur="saveEdit(index)"
             @keyup.enter="saveEdit(index)"
           />
-
-
         </q-item-section>
 
 
         <q-item-section side top>
         <q-item-label caption>{{ todaysDate }}  </q-item-label>
-
-        
-        
         </q-item-section>
 
         <q-item-section side>
           <q-btn
             v-if="!task.isEditing"
-            @click.stop="editTask(index)"
+            @click="editTask(index)"
             round
             dense
             flat
@@ -81,7 +74,7 @@
           />
           <q-btn
             v-if="task.done"
-            @click.stop="deleteTask(index)"
+            @click="deleteTask(index)"
             push
             round
             color="primary"
@@ -107,12 +100,12 @@
 
 <script>
 import { useQuasar,date } from 'quasar'
-    import { ref,computed,onMounted,watch} from 'vue'
+import { ref,computed,onMounted,watch} from 'vue'
     export default {
         setup(){
             const newTask = ref('')
             const tasks = ref({})
-            const model=ref('') 
+          
            
             const $q = useQuasar()
             const addTask=()=>{
@@ -144,7 +137,6 @@ import { useQuasar,date } from 'quasar'
 
               watch(tasks, (newTasks) => {
                     window.localStorage.setItem("tasks", JSON.stringify(newTasks));
-                    console.log(newTask)
                     }, { deep: true });
 
 
@@ -172,7 +164,7 @@ import { useQuasar,date } from 'quasar'
                todaysDate,
                editTask,
                saveEdit,
-               model
+               
             }
         }
     }
